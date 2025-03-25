@@ -47,7 +47,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            GALI GALI ME SHORR HAI, SADHAM HUSSEIN ZINDABAD
+            More info
           </a>
         </div>
       </main>
