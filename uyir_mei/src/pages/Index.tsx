@@ -6,7 +6,7 @@ import Footer from '@/components/layout/Footer';
 import Hero from '@/components/home/Hero';
 import Features from '@/components/home/Features';
 import ImpactStories from '@/components/home/ImpactStories';
-import Button from '@/components/ui/Button';
+import Button from '@/components/ui/bb';
 
 const Index = () => {
   useEffect(() => {

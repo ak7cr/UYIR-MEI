@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
-import Button from '../ui/Button';
+import Button from '../ui/bb';
 
 const Hero = () => {
   return (

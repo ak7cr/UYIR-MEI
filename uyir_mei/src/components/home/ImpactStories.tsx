@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Button from '../ui/Button';
+import Button from '../ui/bb';
 
 const stories = [
   {
