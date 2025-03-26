@@ -1,10 +1,9 @@
-
 import React, { useEffect, useState } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { 
   ArrowRight, Clock, Heart, Star, MapPin, Calendar, 
-  Briefcase, GraduationCap, FileText, CheckCircle, User 
+  Briefcase, GraduationCap, FileText, CheckCircle, User, Users 
 } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
