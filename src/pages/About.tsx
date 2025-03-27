@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { ArrowRight, Users, Award, Heart, Calendar } from 'lucide-react';
+import { ArrowRight, Users, Award, Heart, Calendar, Twitter, Linkedin, Mail } from 'lucide-react';
 import Button from '@/components/ui/Button';
 
 const About = () => {
