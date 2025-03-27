@@ -1,41 +1,42 @@
+
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '../ui/Button';
+import Button from '../ui/Button';
 
 const stories = [
   {
     id: 1,
-    title: "Supporting Delhi Flood Victims",
-    quote: "When the 2023 Delhi floods destroyed our home, Uyir Mei connected us with immediate shelter and essential supplies when we had nowhere else to turn.",
-    name: "Rajiv & Family",
-    location: "Delhi",
+    title: "Providing Shelter for Homeless Families",
+    quote: "The support from Theuyir Mei helped us find a safe place to live after we lost everything in the floods.",
+    name: "Priya and Family",
+    location: "Chennai",
     image: "/lovable-uploads/56f47960-da89-4cc6-b87e-03285fefc9a5.png",
-    category: "Disaster Relief"
+    category: "Shelter"
   },
   {
     id: 2,
-    title: "Education Despite the Odds",
-    quote: "After losing my father to COVID-19, continuing my education seemed impossible. The scholarship program helped me stay in school and pursue my dream of becoming a doctor.",
-    name: "Ananya",
-    location: "Chennai",
+    title: "Education for Underprivileged Children",
+    quote: "Thanks to the scholarship program, I can continue my studies and pursue my dream of becoming a doctor.",
+    name: "Rajan",
+    location: "Madurai",
     image: "https://images.unsplash.com/photo-1594708767771-a5e9d3012f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     category: "Education"
   },
   {
     id: 3,
-    title: "Healthcare for Rural Communities",
-    quote: "In our village, accessing medical care meant traveling 40km to the nearest town. The mobile clinic organized by Uyir Mei now visits monthly, saving lives and providing essential care.",
-    name: "Padma",
-    location: "Rural Tamil Nadu",
+    title: "Medical Aid for Senior Citizens",
+    quote: "The free medical camp organized by Theuyir Mei provided me with the medication I couldn't afford.",
+    name: "Lakshmi",
+    location: "Coimbatore",
     image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     category: "Healthcare"
   },
   {
     id: 4,
-    title: "Digital Skills Transform Lives",
-    quote: "After the textile factory closed, I was unemployed for months. The digital skills training gave me a new livelihood - I now work as a remote customer service representative supporting my family.",
-    name: "Arjun",
-    location: "Coimbatore",
+    title: "Skill Training for Youth",
+    quote: "Learning computer skills has opened up new opportunities for me. I now work remotely and support my family.",
+    name: "Vikram",
+    location: "Trichy",
     image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80",
     category: "Skill Development"
   }
@@ -60,6 +61,7 @@ const ImpactStories = () => {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
+  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -72,13 +74,13 @@ const ImpactStories = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <p className="inline-block bg-theuyir-yellow/20 text-theuyir-yellow px-4 py-1 rounded-full text-sm font-medium mb-4">
-            REAL IMPACT STORIES
+            IMPACT STORIES
           </p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Making a Real Difference
+            Making a <span className="yellow-highlight">Real Difference</span>
           </h2>
           <p className="text-gray-300 max-w-2xl mx-auto">
-            These are real stories of individuals and communities whose lives have been transformed through our collective efforts.
+            These stories highlight the impact of our collective efforts and the real lives we've touched together.
           </p>
         </div>
 
@@ -123,6 +125,7 @@ const ImpactStories = () => {
             </div>
           </div>
 
+          {/* Navigation Controls */}
           <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-3 transition-colors"
@@ -139,6 +142,7 @@ const ImpactStories = () => {
             <ChevronRight size={24} />
           </button>
 
+          {/* Indicators */}
           <div className="flex justify-center mt-8 space-x-2">
             {stories.map((_, index) => (
               <button
