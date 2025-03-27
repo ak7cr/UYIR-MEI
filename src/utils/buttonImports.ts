@@ -3,7 +3,7 @@
 // to avoid casing issues between Button.tsx and button.tsx
 
 import ButtonCustom from '@/components/ui/Button';
-import { Button as ButtonShadcn } from '@/components/ui/button';
+import { Button as ButtonShadcn } from '@/components/ui/Button';
 
 // Export both button components to be used based on context
 export { ButtonCustom as Button, ButtonShadcn };
