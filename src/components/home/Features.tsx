@@ -1,83 +1,103 @@
-
 import React from 'react';
-import { Heart, Award, Clock, Users, Sparkles, Shield } from 'lucide-react';
-
-const FeatureCard = ({ icon, title, description }: { icon: React.ReactNode, title: string, description: string }) => {
-  return (
-    <div className="bg-white rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg border border-gray-100">
-      <div className="flex items-start">
-        <div className="mr-4 p-3 bg-theuyir-yellow/10 rounded-lg text-theuyir-darkgrey">
-          {icon}
-        </div>
-        <div>
-          <h3 className="text-xl font-semibold mb-2 text-theuyir-darkgrey">{title}</h3>
-          <p className="text-gray-600">{description}</p>
-        </div>
-      </div>
-    </div>
-  );
-};
+import { Link } from 'react-router-dom';
+import { useLoading } from '@/contexts/LoadingContext';
+import { Heart, Users, Building2, HandHeart, ArrowRight } from 'lucide-react';
 
 const Features = () => {
+  const { setIsLoading, setLoadingText } = useLoading();
+
+  const handleNavigation = (path: string) => {
+    setIsLoading(true);
+    setLoadingText('Loading page...');
+    setTimeout(() => {
+      setIsLoading(false);
+      setLoadingText('Loading...');
+    }, 800);
+  };
+
+  const features = [
+    {
+      icon: Heart,
+      title: "For Those in Need",
+      description: "Find support and resources through our network of verified NGOs and volunteers.",
+      link: "/services",
+      action: "Get Help"
+    },
+    {
+      icon: Building2,
+      title: "For NGOs",
+      description: "Join our platform to expand your reach and connect with donors and volunteers.",
+      link: "/services",
+      action: "Partner With Us"
+    },
+    {
+      icon: HandHeart,
+      title: "For Donors",
+      description: "Make transparent and impactful donations to verified causes and organizations.",
+      link: "/give",
+      action: "Make a Difference"
+    },
+    {
+      icon: Users,
+      title: "For Volunteers",
+      description: "Contribute your time and skills to meaningful projects in your community.",
+      link: "/get-involved",
+      action: "Join Our Team"
+    }
+  ];
+
   return (
-    <section className="py-20 bg-gradient-to-b from-theuyir-lightgrey to-white">
+    <section className="relative bg-theuyir-darkgrey text-white py-24 overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] opacity-[0.15]"></div>
+
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <p className="inline-block bg-theuyir-pink/10 text-theuyir-pink px-4 py-1 rounded-full text-sm font-medium mb-4">OUR CORE VALUES</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-theuyir-darkgrey mb-4">How We're Making a <span className="yellow-highlight">Difference</span></h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Our platform is built on the principles of transparency, accessibility, and direct impact. 
-            We connect those who need help with those who can provide it.
+        <div className="max-w-4xl mx-auto text-center mb-16">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 bg-gradient-to-r from-theuyir-yellow via-theuyir-pink to-theuyir-yellow bg-clip-text text-transparent">
+            How We Make a Difference
+          </h2>
+          <p className="text-xl text-gray-300 leading-relaxed">
+            Our platform connects different stakeholders in the social impact ecosystem, making it easier for everyone to contribute to positive change.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <FeatureCard 
-            icon={<Heart size={24} />}
-            title="Direct Aid"
-            description="Connect beneficiaries directly with donors for specific needs, from food and shelter to education and healthcare."
-          />
-          
-          <FeatureCard 
-            icon={<Award size={24} />}
-            title="Verified NGOs"
-            description="Every organization on our platform is thoroughly verified to ensure legitimacy and build trust with donors."
-          />
-          
-          <FeatureCard 
-            icon={<Clock size={24} />}
-            title="Real-Time Updates"
-            description="Track the progress of donations and volunteer work through our transparent monitoring system."
-          />
-          
-          <FeatureCard 
-            icon={<Users size={24} />}
-            title="Skilled Volunteering"
-            description="Match volunteers with opportunities based on their skills, location, and availability."
-          />
-          
-          <FeatureCard 
-            icon={<Sparkles size={24} />}
-            title="Impact Stories"
-            description="See the real impact of your contributions through documented success stories from beneficiaries."
-          />
-          
-          <FeatureCard 
-            icon={<Shield size={24} />}
-            title="Secure Transactions"
-            description="Process donations securely through trusted payment gateways with complete transparency."
-          />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {features.map((feature, index) => (
+            <div
+              key={index}
+              className="bg-white/5 backdrop-blur-sm rounded-lg p-6 transition-all duration-300 hover:bg-white/10 group"
+            >
+              <div className="mb-4">
+                <feature.icon className="w-12 h-12 text-theuyir-yellow transition-transform duration-300 group-hover:scale-110" />
+              </div>
+              <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
+              <p className="text-gray-300 mb-6 leading-relaxed">{feature.description}</p>
+              <Link
+                to={feature.link}
+                onClick={() => handleNavigation(feature.link)}
+                className="inline-flex items-center text-theuyir-yellow hover:text-theuyir-pink transition-colors duration-300 font-medium group/link"
+              >
+                {feature.action}
+                <ArrowRight className="ml-2 transition-transform duration-300 group-hover/link:translate-x-1" />
+              </Link>
+            </div>
+          ))}
         </div>
 
-        <div className="mt-16 text-center">
-          <a href="#" className="inline-flex items-center text-theuyir-pink hover:text-theuyir-darkgrey font-medium transition-colors">
-            <span>Learn more about our approach</span>
-            <svg className="w-5 h-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd" />
-            </svg>
-          </a>
+        <div className="text-center mt-16">
+          <Link
+            to="/about"
+            onClick={() => handleNavigation('/about')}
+            className="inline-flex items-center text-theuyir-yellow hover:text-theuyir-pink transition-colors duration-300 font-medium group"
+          >
+            Learn more about our approach
+            <ArrowRight className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
         </div>
       </div>
+
+      {/* Decorative Elements */}
+      <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-theuyir-yellow via-theuyir-pink to-theuyir-yellow"></div>
     </section>
   );
 };

@@ -1,15 +1,13 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search } from 'lucide-react';
 import Button from '../ui/Button';
 import { useLoading } from '@/contexts/LoadingContext';
-import { navigationMenuTriggerStyle } from '../ui/navigation-menu';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { setIsLoading } = useLoading();
+  const { setIsLoading, setLoadingText } = useLoading();
   const location = useLocation();
 
   useEffect(() => {
@@ -28,7 +26,11 @@ const Navbar = () => {
   const handleNavigation = (path: string) => {
     if (location.pathname !== path) {
       setIsLoading(true);
-      setTimeout(() => setIsLoading(false), 800);
+      setLoadingText('Loading page...');
+      setTimeout(() => {
+        setIsLoading(false);
+        setLoadingText('Loading...');
+      }, 800);
     }
     setMobileMenuOpen(false);
   };
@@ -62,46 +64,23 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <Link 
-            to="/about" 
-            className={`nav-link relative overflow-hidden group ${location.pathname === '/about' ? 'text-theuyir-pink' : ''}`}
-            onClick={() => handleNavigation('/about')}
-          >
-            <span className="relative z-10">ABOUT US</span>
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-theuyir-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-          </Link>
-          <Link 
-            to="/services" 
-            className={`nav-link relative overflow-hidden group ${location.pathname === '/services' ? 'text-theuyir-pink' : ''}`}
-            onClick={() => handleNavigation('/services')}
-          >
-            <span className="relative z-10">WHAT WE DO</span>
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-theuyir-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-          </Link>
-          <Link 
-            to="/get-involved" 
-            className={`nav-link relative overflow-hidden group ${location.pathname === '/get-involved' ? 'text-theuyir-pink' : ''}`}
-            onClick={() => handleNavigation('/get-involved')}
-          >
-            <span className="relative z-10">GET INVOLVED</span>
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-theuyir-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-          </Link>
-          <Link 
-            to="/give" 
-            className={`nav-link relative overflow-hidden group ${location.pathname === '/give' ? 'text-theuyir-pink' : ''}`}
-            onClick={() => handleNavigation('/give')}
-          >
-            <span className="relative z-10">WAYS TO GIVE</span>
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-theuyir-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-          </Link>
-          <Link 
-            to="/stories" 
-            className={`nav-link relative overflow-hidden group ${location.pathname === '/stories' ? 'text-theuyir-pink' : ''}`}
-            onClick={() => handleNavigation('/stories')}
-          >
-            <span className="relative z-10">STORIES</span>
-            <span className="absolute bottom-0 left-0 w-full h-0.5 bg-theuyir-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
-          </Link>
+          {[
+            { path: '/about', label: 'ABOUT US' },
+            { path: '/services', label: 'WHAT WE DO' },
+            { path: '/get-involved', label: 'GET INVOLVED' },
+            { path: '/give', label: 'WAYS TO GIVE' },
+            { path: '/stories', label: 'STORIES' }
+          ].map(({ path, label }) => (
+            <Link
+              key={path}
+              to={path} 
+              className={`nav-link relative overflow-hidden group ${location.pathname === path ? 'text-theuyir-pink' : ''}`}
+              onClick={() => handleNavigation(path)}
+            >
+              <span className="relative z-10">{label}</span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-theuyir-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </Link>
+          ))}
           <Button 
             variant="primary" 
             size="md" 
@@ -109,7 +88,7 @@ const Navbar = () => {
           >
             DONATE
           </Button>
-          <button 
+          <button
             className="text-theuyir-darkgrey hover:text-theuyir-pink transition-all duration-300 transform hover:scale-110"
             aria-label="Search"
           >
@@ -128,56 +107,41 @@ const Navbar = () => {
       </div>
 
       {/* Mobile Navigation */}
-      {mobileMenuOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-sm shadow-lg animate-fade-in overflow-hidden">
-          <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
-            <Link 
-              to="/about" 
-              className={`nav-link py-2 pl-2 border-l-4 ${location.pathname === '/about' ? 'border-theuyir-yellow text-theuyir-pink' : 'border-transparent'}`}
-              onClick={() => handleNavigation('/about')}
+      <div 
+        className={`md:hidden bg-white/95 backdrop-blur-sm shadow-lg transition-all duration-300 ease-in-out ${
+          mobileMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
+        } overflow-hidden`}
+      >
+        <div className="container mx-auto px-4 py-4 flex flex-col space-y-4">
+          {[
+            { path: '/about', label: 'ABOUT US' },
+            { path: '/services', label: 'WHAT WE DO' },
+            { path: '/get-involved', label: 'GET INVOLVED' },
+            { path: '/give', label: 'WAYS TO GIVE' },
+            { path: '/stories', label: 'STORIES' }
+          ].map(({ path, label }) => (
+            <Link
+              key={path}
+              to={path} 
+              className={`nav-link py-2 pl-2 border-l-4 transition-all duration-300 ${
+                location.pathname === path ? 'border-theuyir-yellow text-theuyir-pink' : 'border-transparent'
+              }`}
+              onClick={() => handleNavigation(path)}
             >
-              ABOUT US
+              {label}
             </Link>
-            <Link 
-              to="/services" 
-              className={`nav-link py-2 pl-2 border-l-4 ${location.pathname === '/services' ? 'border-theuyir-yellow text-theuyir-pink' : 'border-transparent'}`}
-              onClick={() => handleNavigation('/services')}
+          ))}
+          <div className="flex items-center justify-between pt-2">
+            <Button variant="primary" size="md" fullWidth>DONATE</Button>
+            <button 
+              className="ml-4 text-theuyir-darkgrey hover:text-theuyir-pink"
+              aria-label="Search"
             >
-              WHAT WE DO
-            </Link>
-            <Link 
-              to="/get-involved" 
-              className={`nav-link py-2 pl-2 border-l-4 ${location.pathname === '/get-involved' ? 'border-theuyir-yellow text-theuyir-pink' : 'border-transparent'}`}
-              onClick={() => handleNavigation('/get-involved')}
-            >
-              GET INVOLVED
-            </Link>
-            <Link 
-              to="/give" 
-              className={`nav-link py-2 pl-2 border-l-4 ${location.pathname === '/give' ? 'border-theuyir-yellow text-theuyir-pink' : 'border-transparent'}`}
-              onClick={() => handleNavigation('/give')}
-            >
-              WAYS TO GIVE
-            </Link>
-            <Link 
-              to="/stories" 
-              className={`nav-link py-2 pl-2 border-l-4 ${location.pathname === '/stories' ? 'border-theuyir-yellow text-theuyir-pink' : 'border-transparent'}`}
-              onClick={() => handleNavigation('/stories')}
-            >
-              STORIES
-            </Link>
-            <div className="flex items-center justify-between pt-2">
-              <Button variant="primary" size="md" fullWidth>DONATE</Button>
-              <button 
-                className="ml-4 text-theuyir-darkgrey hover:text-theuyir-pink"
-                aria-label="Search"
-              >
-                <Search size={20} />
-              </button>
-            </div>
+              <Search size={20} />
+            </button>
           </div>
         </div>
-      )}
+      </div>
     </header>
   );
 };
