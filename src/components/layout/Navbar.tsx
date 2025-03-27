@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { Button, getButtonClassNames } from '@/utils/buttonImports';
 import { useLoading } from '@/contexts/LoadingContext';
 
 const Navbar = () => {
@@ -166,7 +166,7 @@ const Navbar = () => {
               STORIES
             </Link>
             <div className="flex items-center justify-between pt-2">
-              <Button variant="default" size="default" fullWidth>DONATE</Button>
+              <Button variant="default" size="default" className={getButtonClassNames("", true)}>DONATE</Button>
               <button 
                 className="ml-4 text-theuyir-darkgrey hover:text-theuyir-pink"
                 aria-label="Search"

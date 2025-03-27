@@ -25,18 +25,41 @@ Our codebase was using `"primary"` which is not one of the allowed values.
 
 Our codebase was using `"md"` which is not one of the allowed values.
 
-## How to Fix
+## How We Fixed It
 
-1. Replace all occurrences of `variant="primary"` with `variant="default"`
-2. Replace all occurrences of `size="md"` with `size="default"`
+1. We replaced all occurrences of `variant="primary"` with `variant="default"`
+2. We replaced all occurrences of `size="md"` with `size="default"`
+3. We created a utility in `src/utils/buttonImports.ts` to handle the `fullWidth` prop with a className utility
 
-This should be done across all component files where Button is used.
+## The fullWidth Solution
 
-You can also run the script at `src/scripts/fixButtonVariants.js` to automatically fix these issues.
+The original Button component didn't have a `fullWidth` prop, but many of our components were using it. 
+We solved this by creating a helper function:
+
+```typescript
+// From src/utils/buttonImports.ts
+export const getButtonClassNames = (className?: string, fullWidth?: boolean): string => {
+  return `${fullWidth ? 'w-full' : ''} ${className || ''}`.trim();
+};
+```
+
+This allows us to use the `fullWidth` functionality with the proper shadcn Button component:
+
+```tsx
+// Before:
+<Button variant="primary" size="md" fullWidth>
+  Apply Now
+</Button>
+
+// After:
+<Button variant="default" size="default" className={getButtonClassNames("", true)}>
+  Apply Now
+</Button>
+```
 
 ## Files Affected
 
-The following files have issues with Button variants or sizes:
+The following files had issues with Button variants or sizes and were fixed:
 
 - src/components/home/ImpactStories.tsx
 - src/components/layout/Navbar.tsx
@@ -51,3 +74,13 @@ The following files have issues with Button variants or sizes:
 Some components were importing from the wrong path:
 - Fixed import paths for Button in alert-dialog.tsx, pagination.tsx, and calendar.tsx.
 - Added missing Lucide icon imports in Services.tsx and Stories.tsx.
+
+## Automated Fix Script
+
+We created an automated script that can be run to fix all button variants and sizes issues:
+
+```bash
+node src/scripts/fixButtonVariantsAll.js
+```
+
+This script will scan all .tsx files, replace the incorrect variants and sizes, and update the fullWidth prop to use the className approach.
