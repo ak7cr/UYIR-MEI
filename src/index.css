@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -85,12 +86,8 @@
     @apply font-medium text-theuyir-darkgrey hover:text-theuyir-pink transition-all duration-300;
   }
   
-  .yellow-highlight {
-    @apply relative inline-block;
-  }
-  
-  .yellow-highlight::after {
-    @apply content-[''] absolute w-full h-[8px] bg-theuyir-yellow -bottom-1 -z-10 left-0 transform skew-x-3;
+  .text-emphasis {
+    @apply relative font-medium text-theuyir-pink;
   }
 
   .animate-fade-up {
@@ -164,3 +161,4 @@
   opacity: 1;
   transform: translateY(0);
 }
+

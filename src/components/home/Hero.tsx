@@ -40,33 +40,21 @@ const Hero = () => {
   };
 
   return (
-    <section ref={heroRef} className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden opacity-0 translate-y-10 transition-all duration-1000">
-      <div className="absolute inset-0 -z-10">
-        <img
-          src="/lovable-uploads/6baa9d06-e666-4b58-be83-ef94e87d1ddb.png"
-          alt="Background"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60"></div>
-      </div>
-      
+    <section ref={heroRef} className="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden opacity-0 translate-y-10 transition-all duration-1000 bg-gradient-to-b from-theuyir-darkgrey/5 to-white/80">      
       <div className="container mx-auto px-4 md:px-8">
         <div className="md:max-w-2xl lg:max-w-3xl">
           <div className="bg-theuyir-darkgrey/10 backdrop-blur-md p-2 rounded-lg inline-flex items-center mb-6 animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             <span className="bg-theuyir-yellow text-xs font-semibold px-3 py-1 rounded-md mr-2">FOUNDED 2023</span>
-            <span className="text-white text-sm font-medium">Empowering Communities Across India</span>
+            <span className="text-theuyir-darkgrey text-sm font-medium">Empowering Communities Across India</span>
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-8 leading-tight animate-fade-in opacity-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
-            <span className="relative inline-block">
-              <span className="relative z-10">HELPING THE</span>
-              <span className="absolute bottom-1 left-0 w-full h-3 bg-theuyir-yellow/80 -z-10 transform skew-x-3"></span>
-            </span><br />
-            <span className="inline-block mt-1">HUNGRY, HOMELESS</span><br />
-            <span className="inline-block mt-1">AND HURTING.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-theuyir-darkgrey mb-8 leading-tight animate-fade-in opacity-0" style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}>
+            <span className="block mb-1">HELPING THE</span>
+            <span className="block mb-1">HUNGRY, HOMELESS</span>
+            <span className="block">AND HURTING.</span>
           </h1>
           
-          <p className="text-white/90 text-lg mb-8 max-w-xl animate-fade-in opacity-0" style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}>
+          <p className="text-theuyir-darkgrey/90 text-lg mb-8 max-w-xl animate-fade-in opacity-0" style={{ animationDelay: '0.7s', animationFillMode: 'forwards' }}>
             Uyir Mei connects those in need with donors, volunteers, and NGOs to create meaningful impact through a unified platform focused on transparency and direct aid.
           </p>
           
@@ -78,7 +66,7 @@ const Hero = () => {
               </Button>
             </Link>
             <Link to="/about" onClick={() => handleNavigation('/about')}>
-              <Button variant="outline" size="lg" className="bg-white/10 text-white border-white border-opacity-40 hover:bg-white/20 transition-all duration-300">
+              <Button variant="outline" size="lg" className="bg-white/10 text-theuyir-darkgrey border-theuyir-darkgrey border-opacity-40 hover:bg-white/20 transition-all duration-300">
                 LEARN MORE
               </Button>
             </Link>
