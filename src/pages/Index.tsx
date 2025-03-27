@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import { Heart, ArrowRight, Calendar, Target } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
@@ -6,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 import Hero from '@/components/home/Hero';
 import Features from '@/components/home/Features';
 import ImpactStories from '@/components/home/ImpactStories';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 
 const Index = () => {
   useEffect(() => {

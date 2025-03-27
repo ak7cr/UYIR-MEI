@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import Button from '../ui/Button';
+import { Button } from '../ui/Button';
 
 const stories = [
   {
@@ -61,7 +60,6 @@ const ImpactStories = () => {
     setTimeout(() => setIsAnimating(false), 500);
   };
 
-  // Auto slide
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
@@ -125,7 +123,6 @@ const ImpactStories = () => {
             </div>
           </div>
 
-          {/* Navigation Controls */}
           <button
             onClick={prevSlide}
             className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white rounded-full p-3 transition-colors"
@@ -142,7 +139,6 @@ const ImpactStories = () => {
             <ChevronRight size={24} />
           </button>
 
-          {/* Indicators */}
           <div className="flex justify-center mt-8 space-x-2">
             {stories.map((_, index) => (
               <button

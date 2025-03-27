@@ -5,7 +5,7 @@ import {
   ArrowRight, Heart, CreditCard, Wallet, 
   DollarSign, Calendar, Gift, ShieldCheck, Clock 
 } from 'lucide-react';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 
 const Give = () => {
   const [donationAmount, setDonationAmount] = useState<number | string>('');

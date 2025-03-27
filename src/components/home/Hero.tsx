@@ -1,7 +1,7 @@
 
 import React, { useEffect, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
-import Button from '../ui/Button';
+import { Button } from '../ui/Button';
 import { Link } from 'react-router-dom';
 import { useLoading } from '@/contexts/LoadingContext';
 

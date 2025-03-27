@@ -5,7 +5,7 @@ import {
   ArrowRight, Clock, Heart, Star, MapPin, Calendar, 
   Briefcase, GraduationCap, FileText, CheckCircle, User, Users 
 } from 'lucide-react';
-import Button from '@/components/ui/Button';
+import { Button } from '@/components/ui/Button';
 
 const GetInvolved = () => {
   const [activeTab, setActiveTab] = useState('volunteer');

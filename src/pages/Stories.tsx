@@ -1,9 +1,8 @@
-
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { ArrowRight, Search, Tag, Calendar, User, Heart, MessageSquare, ChevronLeft, ChevronRight } from 'lucide-react';
-import Button from '@/components/ui/Button';
+import { ArrowRight } from 'lucide-react';
+import { Button } from '@/components/ui/Button';
 
 const StoryCard = ({ 
   image, 
