@@ -5,7 +5,7 @@ import {
   ArrowRight, Clock, Heart, Star, MapPin, Calendar, 
   Briefcase, GraduationCap, FileText, CheckCircle, User, Users 
 } from 'lucide-react';
-import { Button, getButtonClassNames } from '@/utils/buttonImports';
+import { Button } from '@/components/ui/Button';
 
 const GetInvolved = () => {
   const [activeTab, setActiveTab] = useState('volunteer');
@@ -192,7 +192,7 @@ const GetInvolved = () => {
                       <span className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Weekday Evenings</span>
                     </div>
                     
-                    <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
+                    <Button variant="primary" size="md" fullWidth className="group">
                       Apply Now <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </div>
@@ -232,7 +232,7 @@ const GetInvolved = () => {
                       <span className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Weekend Mornings</span>
                     </div>
                     
-                    <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
+                    <Button variant="primary" size="md" fullWidth className="group">
                       Apply Now <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </div>
@@ -272,7 +272,7 @@ const GetInvolved = () => {
                       <span className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">One-Week Commitment</span>
                     </div>
                     
-                    <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
+                    <Button variant="primary" size="md" fullWidth className="group">
                       Apply Now <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </div>
@@ -667,7 +667,7 @@ const GetInvolved = () => {
               together we can create meaningful change in our communities.
             </p>
             <div className="flex flex-wrap justify-center gap-4 fade-in-section opacity-0" style={{ animationDelay: '0.4s' }}>
-              <Button variant="default" size="lg">
+              <Button variant="primary" size="lg">
                 Get Started Now
               </Button>
               <Button size="lg" className="bg-white text-theuyir-pink hover:bg-white/90">

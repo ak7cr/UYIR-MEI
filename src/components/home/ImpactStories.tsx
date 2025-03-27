@@ -1,7 +1,6 @@
-
 import React, { useState, useEffect, useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
+import { Button } from '../ui/Button';
 
 const stories = [
   {
@@ -113,7 +112,7 @@ const ImpactStories = () => {
                           <p className="font-semibold text-theuyir-yellow">{story.name}</p>
                           <p className="text-gray-400">{story.location}</p>
                         </div>
-                        <Button variant="default" size="default">
+                        <Button variant="primary" size="md">
                           Read Full Story
                         </Button>
                       </div>

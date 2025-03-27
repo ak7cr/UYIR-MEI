@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Search } from 'lucide-react';
-import { Button, getButtonClassNames } from '@/utils/buttonImports';
+import { Button } from '../ui/Button';
 import { useLoading } from '@/contexts/LoadingContext';
+import { navigationMenuTriggerStyle } from '../ui/navigation-menu';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -55,7 +56,7 @@ const Navbar = () => {
           />
           <div className="ml-3">
             <span className="block text-2xl font-bold text-theuyir-darkgrey tracking-wide">UYIR MEI</span>
-            <span className="text-xs text-theuyir-pink tracking-wider font-medium">CONNECTING EMPATHY</span>
+            <span className="text-xs text-theuyir-pink tracking-wider font-medium">CONNECTING COMPASSION</span>
           </div>
         </Link>
 
@@ -102,8 +103,8 @@ const Navbar = () => {
             <span className="absolute bottom-0 left-0 w-full h-0.5 bg-theuyir-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
           </Link>
           <Button 
-            variant="default" 
-            size="default" 
+            variant="primary" 
+            size="md" 
             className="animate-pulse-soft transition-transform hover:scale-105"
           >
             DONATE
@@ -166,7 +167,7 @@ const Navbar = () => {
               STORIES
             </Link>
             <div className="flex items-center justify-between pt-2">
-              <Button variant="default" size="default" className={getButtonClassNames("", true)}>DONATE</Button>
+              <Button variant="primary" size="md" fullWidth>DONATE</Button>
               <button 
                 className="ml-4 text-theuyir-darkgrey hover:text-theuyir-pink"
                 aria-label="Search"

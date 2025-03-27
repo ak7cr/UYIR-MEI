@@ -2,10 +2,41 @@ import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { ArrowRight } from 'lucide-react';
-import {
-  Utensils, Home, GraduationCap, Stethoscope, BookOpen, LifeBuoy
-} from 'lucide-react';
-import { Button, getButtonClassNames } from '@/utils/buttonImports';
+import { Button } from '@/components/ui/Button';
+
+const ServiceCard = ({ icon, title, description, color }: { icon: React.ReactNode, title: string, description: string, color: string }) => {
+  return (
+    <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-all duration-300 group fade-in-section opacity-0">
+      <div className={`p-6 rounded-t-xl ${color}`}>
+        <div className="bg-white/20 w-16 h-16 rounded-full flex items-center justify-center mb-4 transform transition-transform duration-300 group-hover:scale-110">
+          {icon}
+        </div>
+        <h3 className="text-xl font-bold text-white mb-2">{title}</h3>
+        <p className="text-white/90">{description}</p>
+      </div>
+      <div className="p-6 border-t border-gray-100">
+        <h4 className="font-semibold mb-3 text-theuyir-darkgrey">How we help:</h4>
+        <ul className="space-y-2">
+          <li className="flex items-start">
+            <ArrowRight size={16} className="mr-2 mt-1 text-theuyir-pink" />
+            <span className="text-gray-600">Direct aid to beneficiaries</span>
+          </li>
+          <li className="flex items-start">
+            <ArrowRight size={16} className="mr-2 mt-1 text-theuyir-pink" />
+            <span className="text-gray-600">NGO partnerships</span>
+          </li>
+          <li className="flex items-start">
+            <ArrowRight size={16} className="mr-2 mt-1 text-theuyir-pink" />
+            <span className="text-gray-600">Volunteer coordination</span>
+          </li>
+        </ul>
+        <Button variant="primary" size="md" className="mt-6 w-full group">
+          Learn More <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
+        </Button>
+      </div>
+    </div>
+  );
+};
 
 const Services = () => {
   useEffect(() => {
@@ -50,213 +81,268 @@ const Services = () => {
           
           <div className="container mx-auto px-4 relative z-10">
             <div className="max-w-3xl mx-auto text-center fade-in-section opacity-0">
-              <Button variant="default" size="default" className="mb-8">
-                OUR SERVICES
-              </Button>
+              <p className="inline-block bg-theuyir-yellow/20 text-theuyir-yellow px-4 py-1 rounded-full text-sm font-medium mb-4">
+                WHAT WE DO
+              </p>
               <h1 className="text-4xl md:text-5xl font-bold mb-6">
-                How We <span className="yellow-highlight">Create Impact</span>
+                Our <span className="yellow-highlight">Services</span> and Programs
               </h1>
               <p className="text-white/80 text-lg mb-8">
-                Through our integrated approach, we address the most pressing needs of vulnerable communities.
+                We provide a comprehensive suite of services designed to address the most pressing needs in our communities, connecting resources with those who need them most.
               </p>
-            </div>
-          </div>
-        </section>
-      
-        {/* Services Overview */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="text-center mb-16 fade-in-section opacity-0">
-              <p className="inline-block bg-theuyir-yellow/20 text-theuyir-yellow px-4 py-1 rounded-full text-sm font-medium mb-4">
-                OUR CORE SERVICES
-              </p>
-              <h2 className="text-3xl md:text-4xl font-bold text-theuyir-darkgrey mb-4">
-                What We <span className="yellow-highlight">Offer</span>
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                We provide a range of essential services to support vulnerable communities, focusing on food security, education, healthcare, and more.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-              {/* Service 1 */}
-              <div className="bg-theuyir-lightgrey rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg group fade-in-section opacity-0">
-                <div className="flex items-center mb-4">
-                  <div className="bg-theuyir-yellow/20 p-3 rounded-full mr-4">
-                    <Utensils className="text-theuyir-darkgrey" size={28} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-theuyir-darkgrey">Food Security</h3>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  We combat hunger and malnutrition by providing nutritious meals, food packages, and sustainable agriculture programs.
-                </p>
-                <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
-                  Learn More <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
-              
-              {/* Service 2 */}
-              <div className="bg-theuyir-lightgrey rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg group fade-in-section opacity-0" style={{ animationDelay: '0.2s' }}>
-                <div className="flex items-center mb-4">
-                  <div className="bg-theuyir-yellow/20 p-3 rounded-full mr-4">
-                    <Home className="text-theuyir-darkgrey" size={28} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-theuyir-darkgrey">Shelter & Housing</h3>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  We provide safe and affordable housing solutions, emergency shelters, and support services for the homeless.
-                </p>
-                <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
-                  Explore Options <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
-              
-              {/* Service 3 */}
-              <div className="bg-theuyir-lightgrey rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg group fade-in-section opacity-0" style={{ animationDelay: '0.4s' }}>
-                <div className="flex items-center mb-4">
-                  <div className="bg-theuyir-yellow/20 p-3 rounded-full mr-4">
-                    <GraduationCap className="text-theuyir-darkgrey" size={28} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-theuyir-darkgrey">Education Support</h3>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  We empower children and youth through scholarships, educational resources, and skill-building programs.
-                </p>
-                <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
-                  View Programs <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
-              
-              {/* Service 4 */}
-              <div className="bg-theuyir-lightgrey rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg group fade-in-section opacity-0">
-                <div className="flex items-center mb-4">
-                  <div className="bg-theuyir-yellow/20 p-3 rounded-full mr-4">
-                    <Stethoscope className="text-theuyir-darkgrey" size={28} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-theuyir-darkgrey">Healthcare Services</h3>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  We provide access to quality healthcare, medical check-ups, and health awareness campaigns for underserved populations.
-                </p>
-                <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
-                  Find Clinics <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
-              
-              {/* Service 5 */}
-              <div className="bg-theuyir-lightgrey rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg group fade-in-section opacity-0" style={{ animationDelay: '0.2s' }}>
-                <div className="flex items-center mb-4">
-                  <div className="bg-theuyir-yellow/20 p-3 rounded-full mr-4">
-                    <BookOpen className="text-theuyir-darkgrey" size={28} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-theuyir-darkgrey">Skill Development</h3>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  We offer vocational training, entrepreneurship programs, and job placement assistance to empower individuals.
-                </p>
-                <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
-                  Explore Courses <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
-              
-              {/* Service 6 */}
-              <div className="bg-theuyir-lightgrey rounded-xl shadow-md p-6 transition-all duration-300 hover:shadow-lg group fade-in-section opacity-0" style={{ animationDelay: '0.4s' }}>
-                <div className="flex items-center mb-4">
-                  <div className="bg-theuyir-yellow/20 p-3 rounded-full mr-4">
-                    <LifeBuoy className="text-theuyir-darkgrey" size={28} />
-                  </div>
-                  <h3 className="text-xl font-semibold text-theuyir-darkgrey">Crisis Support</h3>
-                </div>
-                <p className="text-gray-600 mb-6">
-                  We provide immediate assistance, counseling, and resources to individuals and families facing emergencies.
-                </p>
-                <Button variant="default" size="default" className={getButtonClassNames("group", true)}>
-                  Get Help <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
-            </div>
-            
-            <div className="text-center fade-in-section opacity-0">
-              <Button variant="outline" size="lg" className="border-theuyir-darkgrey text-theuyir-darkgrey">
-                View All Services
-              </Button>
             </div>
           </div>
         </section>
         
-        {/* Impact Stories */}
+        {/* Services Grid */}
         <section className="py-20 bg-theuyir-lightgrey">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16 fade-in-section opacity-0">
               <p className="inline-block bg-theuyir-pink/10 text-theuyir-pink px-4 py-1 rounded-full text-sm font-medium mb-4">
-                REAL IMPACT
+                OUR FOCUS AREAS
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-theuyir-darkgrey mb-4">
-                Stories of <span className="yellow-highlight">Transformation</span>
+                How We're <span className="yellow-highlight">Making a Difference</span>
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
-                See how our services have made a real difference in the lives of individuals and communities.
+                Through our integrated platform, we connect beneficiaries with the resources they need while empowering donors and volunteers to contribute meaningfully.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-16">
-              <div className="relative fade-in-section opacity-0">
-                <img 
-                  src="https://images.unsplash.com/photo-1505692962103-5494fbec3c6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" 
-                  alt="Education Impact" 
-                  className="rounded-xl shadow-lg"
-                />
-                <div className="absolute -bottom-6 -right-6 bg-theuyir-yellow py-3 px-6 rounded-lg shadow-lg">
-                  <p className="font-bold text-theuyir-darkgrey text-2xl">200+</p>
-                  <p className="text-theuyir-darkgrey text-sm">Children Supported</p>
-                </div>
-              </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <ServiceCard 
+                icon={<Utensils size={32} className="text-white" />}
+                title="Food Security"
+                description="Ensuring access to nutritious meals for all, with a focus on children, elderly, and vulnerable populations."
+                color="bg-gradient-to-br from-amber-500 to-amber-600"
+              />
               
-              <div className="fade-in-section opacity-0">
-                <h3 className="text-2xl font-bold mb-4 text-theuyir-darkgrey">
-                  Empowering Children Through Education
-                </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">
-                  We provide educational support to underprivileged children, including school supplies, uniforms, and after-school tutoring programs.
-                </p>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  "Thanks to Uyir Mei, my daughter is now at the top of her class and dreams of becoming a doctor. We could never have afforded these resources on our own." 
-                  <span className="font-medium">— Lakshmi, parent of a beneficiary</span>
-                </p>
-                <Button variant="secondary" size="default" className="group">
-                  Read Full Story <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
-                </Button>
-              </div>
-            </div>
-            
-            <div className="text-center fade-in-section opacity-0">
-              <Button variant="outline" size="lg" className="border-theuyir-darkgrey text-theuyir-darkgrey">
-                View More Impact Stories
-              </Button>
+              <ServiceCard 
+                icon={<Home size={32} className="text-white" />}
+                title="Shelter & Housing"
+                description="Providing safe, clean shelter solutions for the homeless and those displaced by poverty or disaster."
+                color="bg-gradient-to-br from-emerald-500 to-emerald-600"
+              />
+              
+              <ServiceCard 
+                icon={<GraduationCap size={32} className="text-white" />}
+                title="Education Support"
+                description="Facilitating access to quality education through scholarships, supplies, and educational resources."
+                color="bg-gradient-to-br from-blue-500 to-blue-600"
+              />
+              
+              <ServiceCard 
+                icon={<Stethoscope size={32} className="text-white" />}
+                title="Healthcare Access"
+                description="Connecting individuals with medical care, medications, and health education services."
+                color="bg-gradient-to-br from-red-500 to-red-600"
+              />
+              
+              <ServiceCard 
+                icon={<BookOpen size={32} className="text-white" />}
+                title="Skill Development"
+                description="Offering training programs to build employable skills and create pathways to self-sufficiency."
+                color="bg-gradient-to-br from-purple-500 to-purple-600"
+              />
+              
+              <ServiceCard 
+                icon={<LifeBuoy size={32} className="text-white" />}
+                title="Emergency Relief"
+                description="Providing rapid response aid during natural disasters, health crises, and other emergencies."
+                color="bg-gradient-to-br from-theuyir-pink to-pink-600"
+              />
             </div>
           </div>
         </section>
         
-        {/* CTA Section */}
-        <section className="py-20 bg-theuyir-pink text-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6 fade-in-section opacity-0">
-              Ready to <span className="yellow-highlight">Transform</span> Lives?
-            </h2>
-            <p className="text-white/80 max-w-2xl mx-auto mb-10 fade-in-section opacity-0" style={{ animationDelay: '0.2s' }}>
-              Join us in our mission to create a more equitable and compassionate society. Together, we can make a lasting impact.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4 fade-in-section opacity-0" style={{ animationDelay: '0.4s' }}>
-              <Button variant="default" size="lg">
-                Donate Now
-              </Button>
-              <Button size="lg" className="bg-white text-theuyir-pink hover:bg-white/90">
-                Get Involved
-              </Button>
+        {/* How It Works */}
+        <section className="py-20 bg-white">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-16 fade-in-section opacity-0">
+              <p className="inline-block bg-theuyir-yellow/20 text-theuyir-darkgrey px-4 py-1 rounded-full text-sm font-medium mb-4">
+                THE PROCESS
+              </p>
+              <h2 className="text-3xl md:text-4xl font-bold text-theuyir-darkgrey mb-4">
+                How It <span className="yellow-highlight">Works</span>
+              </h2>
+              <p className="text-gray-600 max-w-2xl mx-auto">
+                Our streamlined process ensures that help reaches those who need it efficiently and transparently.
+              </p>
+            </div>
+            
+            <div className="relative">
+              {/* Process Timeline */}
+              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-theuyir-pink/20 transform -translate-x-1/2"></div>
+              
+              <div className="space-y-20">
+                {/* Step 1 */}
+                <div className="relative fade-in-section opacity-0">
+                  <div className="hidden md:block absolute left-1/2 top-0 w-8 h-8 bg-theuyir-pink rounded-full transform -translate-x-1/2 z-10 shadow-lg"></div>
+                  <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <div className="md:text-right mb-8 md:mb-0">
+                      <p className="inline-block bg-theuyir-pink/10 text-theuyir-pink px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        STEP 1
+                      </p>
+                      <h3 className="text-2xl font-bold mb-4 text-theuyir-darkgrey">Registration & Verification</h3>
+                      <p className="text-gray-600">
+                        Users register as beneficiaries, donors, volunteers, or NGOs. Our team verifies credentials to ensure trust and security.
+                      </p>
+                    </div>
+                    <div className="bg-theuyir-lightgrey rounded-xl overflow-hidden shadow-md">
+                      <img 
+                        src="https://images.unsplash.com/photo-1556155092-490a1ba16284?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                        alt="Registration Process" 
+                        className="w-full h-64 object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Step 2 */}
+                <div className="relative fade-in-section opacity-0">
+                  <div className="hidden md:block absolute left-1/2 top-0 w-8 h-8 bg-theuyir-pink rounded-full transform -translate-x-1/2 z-10 shadow-lg"></div>
+                  <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <div className="order-last md:order-first mb-8 md:mb-0">
+                      <div className="bg-theuyir-lightgrey rounded-xl overflow-hidden shadow-md">
+                        <img 
+                          src="https://images.unsplash.com/photo-1531545514256-b1400bc00f31?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                          alt="Needs Assessment" 
+                          className="w-full h-64 object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="inline-block bg-theuyir-pink/10 text-theuyir-pink px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        STEP 2
+                      </p>
+                      <h3 className="text-2xl font-bold mb-4 text-theuyir-darkgrey">Needs Assessment & Posting</h3>
+                      <p className="text-gray-600">
+                        Verified beneficiaries or NGOs post specific needs, from food and shelter to education and healthcare, with required details.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Step 3 */}
+                <div className="relative fade-in-section opacity-0">
+                  <div className="hidden md:block absolute left-1/2 top-0 w-8 h-8 bg-theuyir-pink rounded-full transform -translate-x-1/2 z-10 shadow-lg"></div>
+                  <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <div className="md:text-right mb-8 md:mb-0">
+                      <p className="inline-block bg-theuyir-pink/10 text-theuyir-pink px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        STEP 3
+                      </p>
+                      <h3 className="text-2xl font-bold mb-4 text-theuyir-darkgrey">Matching & Fulfillment</h3>
+                      <p className="text-gray-600">
+                        Donors and volunteers browse available needs and contribute funds, goods, or time according to their preferences and capabilities.
+                      </p>
+                    </div>
+                    <div className="bg-theuyir-lightgrey rounded-xl overflow-hidden shadow-md">
+                      <img 
+                        src="https://images.unsplash.com/photo-1532629345422-7515f3d16bb6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                        alt="Matching Process" 
+                        className="w-full h-64 object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
+                
+                {/* Step 4 */}
+                <div className="relative fade-in-section opacity-0">
+                  <div className="hidden md:block absolute left-1/2 top-0 w-8 h-8 bg-theuyir-pink rounded-full transform -translate-x-1/2 z-10 shadow-lg"></div>
+                  <div className="md:grid md:grid-cols-2 md:gap-12 items-center">
+                    <div className="order-last md:order-first mb-8 md:mb-0">
+                      <div className="bg-theuyir-lightgrey rounded-xl overflow-hidden shadow-md">
+                        <img 
+                          src="https://images.unsplash.com/photo-1531206715517-5c0ba140b2b8?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                          alt="Impact Tracking" 
+                          className="w-full h-64 object-cover"
+                        />
+                      </div>
+                    </div>
+                    <div>
+                      <p className="inline-block bg-theuyir-pink/10 text-theuyir-pink px-4 py-1 rounded-full text-sm font-medium mb-4">
+                        STEP 4
+                      </p>
+                      <h3 className="text-2xl font-bold mb-4 text-theuyir-darkgrey">Tracking & Reporting</h3>
+                      <p className="text-gray-600">
+                        Our platform provides real-time updates on donation delivery and project implementation, ensuring complete transparency and accountability.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
-      
+        
+        {/* Partner with Us */}
+        <section className="py-20 bg-theuyir-pink text-white">
+          <div className="container mx-auto px-4">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+              <div className="fade-in-section opacity-0">
+                <p className="inline-block bg-white/10 text-white px-4 py-1 rounded-full text-sm font-medium mb-4">
+                  PARTNER WITH US
+                </p>
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Join Our Network of <span className="yellow-highlight">Change-Makers</span>
+                </h2>
+                <p className="text-white/80 mb-6 leading-relaxed">
+                  Whether you're an NGO looking to expand your reach, a corporation interested in CSR initiatives, or a community organization seeking to collaborate, we welcome partnerships that amplify our collective impact.
+                </p>
+                
+                <div className="space-y-4 mb-8">
+                  <div className="flex items-start">
+                    <div className="mr-3 p-2 bg-white/10 rounded-full">
+                      <ArrowRight size={20} className="text-theuyir-yellow" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">NGO Partnerships</h3>
+                      <p className="text-white/80">Register your organization to list services and access our network of donors and volunteers</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="mr-3 p-2 bg-white/10 rounded-full">
+                      <ArrowRight size={20} className="text-theuyir-yellow" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Corporate Collaborations</h3>
+                      <p className="text-white/80">Engage your employees and fulfill CSR objectives through structured giving programs</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start">
+                    <div className="mr-3 p-2 bg-white/10 rounded-full">
+                      <ArrowRight size={20} className="text-theuyir-yellow" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold mb-1">Community Initiatives</h3>
+                      <p className="text-white/80">Work with us to develop localized solutions for specific community needs</p>
+                    </div>
+                  </div>
+                </div>
+                
+                <Button variant="primary" size="lg" className="group">
+                  Become a Partner <ArrowRight size={16} className="ml-2 transition-transform duration-300 group-hover:translate-x-1" />
+                </Button>
+              </div>
+              
+              <div className="relative rounded-xl overflow-hidden shadow-xl fade-in-section opacity-0">
+                <img 
+                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" 
+                  alt="Partnership" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+                  <div className="text-white">
+                    <p className="font-semibold text-2xl mb-2">100+ Partners</p>
+                    <p className="text-white/80">Working together for a better future</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
       </main>
       
       <Footer />
