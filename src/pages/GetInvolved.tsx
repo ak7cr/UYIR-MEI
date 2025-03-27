@@ -192,7 +192,7 @@ const GetInvolved = () => {
                       <span className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Weekday Evenings</span>
                     </div>
                     
-                    <Button variant="primary" size="md" fullWidth className="group">
+                    <Button variant="default" size="default" fullWidth className="group">
                       Apply Now <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </div>
@@ -232,7 +232,7 @@ const GetInvolved = () => {
                       <span className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">Weekend Mornings</span>
                     </div>
                     
-                    <Button variant="primary" size="md" fullWidth className="group">
+                    <Button variant="default" size="default" fullWidth className="group">
                       Apply Now <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </div>
@@ -272,7 +272,7 @@ const GetInvolved = () => {
                       <span className="bg-gray-100 text-gray-700 text-xs px-3 py-1 rounded-full">One-Week Commitment</span>
                     </div>
                     
-                    <Button variant="primary" size="md" fullWidth className="group">
+                    <Button variant="default" size="default" fullWidth className="group">
                       Apply Now <ArrowRight size={16} className="ml-1 transition-transform duration-300 group-hover:translate-x-1" />
                     </Button>
                   </div>
@@ -442,7 +442,7 @@ const GetInvolved = () => {
                       </label>
                     </div>
                     
-                    <Button variant="primary" size="lg" fullWidth type="submit">
+                    <Button variant="default" size="default" fullWidth type="submit">
                       Submit Registration
                     </Button>
                   </form>
@@ -594,7 +594,7 @@ const GetInvolved = () => {
                       </label>
                     </div>
                     
-                    <Button variant="primary" size="lg" fullWidth type="submit">
+                    <Button variant="default" size="default" fullWidth type="submit">
                       Submit Application
                     </Button>
                   </form>
@@ -667,7 +667,7 @@ const GetInvolved = () => {
               together we can create meaningful change in our communities.
             </p>
             <div className="flex flex-wrap justify-center gap-4 fade-in-section opacity-0" style={{ animationDelay: '0.4s' }}>
-              <Button variant="primary" size="lg">
+              <Button variant="default" size="default">
                 Get Started Now
               </Button>
               <Button size="lg" className="bg-white text-theuyir-pink hover:bg-white/90">
