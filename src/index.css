@@ -1,4 +1,3 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap');
 
 @tailwind base;
@@ -39,7 +38,7 @@
   }
 
   * {
-    @apply border-border scroll-behavior-smooth;
+    @apply border-border scroll-smooth;
   }
 
   body {
@@ -164,4 +163,3 @@
   opacity: 1;
   transform: translateY(0);
 }
-
