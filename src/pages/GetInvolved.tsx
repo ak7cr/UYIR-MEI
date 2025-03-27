@@ -1,11 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { Button, ExtendedButton } from '@/utils/buttonImports';
 import { 
   ArrowRight, Clock, Heart, Star, MapPin, Calendar, 
   Briefcase, GraduationCap, FileText, CheckCircle, User, Users 
 } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 
 const GetInvolved = () => {
   const [activeTab, setActiveTab] = useState('volunteer');

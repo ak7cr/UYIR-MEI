@@ -1,8 +1,17 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
+import { Button } from '@/utils/buttonImports';
+import { 
+  Utensils, 
+  Home, 
+  GraduationCap, 
+  Stethoscope, 
+  BookOpen, 
+  LifeBuoy 
+} from '@/utils/iconImports';
 import { ArrowRight } from 'lucide-react';
-import { Button } from '@/components/ui/Button';
 
 const ServiceCard = ({ icon, title, description, color }: { icon: React.ReactNode, title: string, description: string, color: string }) => {
   return (

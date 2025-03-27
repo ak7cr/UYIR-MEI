@@ -1,8 +1,9 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/utils/buttonImports';
-import { CreditCard, Bank, FileText, ShieldCheck, HelpCircle } from 'lucide-react';
+import { CreditCard, Building2, FileText, ShieldCheck, HelpCircle } from 'lucide-react';
 
 const Give = () => {
   useEffect(() => {
@@ -79,7 +80,7 @@ const Give = () => {
 
               <div className="bg-theuyir-lightgrey p-8 rounded-xl shadow-md hover:shadow-lg transition-all duration-300 fade-in-section opacity-0" style={{ animationDelay: '0.2s' }}>
                 <div className="bg-theuyir-pink/20 p-3 rounded-full w-16 h-16 flex items-center justify-center mb-6">
-                  <Bank className="text-theuyir-darkgrey" size={28} />
+                  <Building2 className="text-theuyir-darkgrey" size={28} />
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-theuyir-darkgrey">Bank Transfer</h3>
                 <p className="text-gray-600 mb-4">Transfer funds directly to our bank account. Contact us for bank details.</p>
