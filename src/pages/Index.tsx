@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { Heart, ArrowRight, Calendar, Target } from 'lucide-react';
 import Navbar from '@/components/layout/Navbar';
@@ -48,7 +49,7 @@ const Index = () => {
                 CURRENT NEEDS
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-theuyir-darkgrey mb-4">
-                Help Make a <span className="yellow-highlight">Difference</span> Today
+                Help Make a Difference Today
               </h2>
               <p className="text-gray-600 max-w-2xl mx-auto">
                 Browse through the current needs and find meaningful ways to contribute, 
@@ -84,7 +85,7 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <Button variant="primary" size="md" fullWidth>
+                  <Button variant="default" size="default">
                     Donate Now
                   </Button>
                 </div>
@@ -117,7 +118,7 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <Button variant="primary" size="md" fullWidth>
+                  <Button variant="default" size="default">
                     Donate Now
                   </Button>
                 </div>
@@ -150,7 +151,7 @@ const Index = () => {
                     </div>
                   </div>
                   
-                  <Button variant="primary" size="md" fullWidth>
+                  <Button variant="default" size="default">
                     Donate Now
                   </Button>
                 </div>
@@ -176,7 +177,7 @@ const Index = () => {
                   VOLUNTEER WITH US
                 </p>
                 <h2 className="text-3xl md:text-4xl font-bold text-theuyir-darkgrey mb-6">
-                  Share Your Time and <span className="yellow-highlight">Skills</span>
+                  Share Your Time and Skills
                 </h2>
                 <p className="text-gray-600 mb-6">
                   Whether you have a few hours or a regular commitment, your time and skills can make 
@@ -242,14 +243,14 @@ const Index = () => {
         <section className="py-20 bg-theuyir-pink text-white">
           <div className="container mx-auto px-4 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 fade-in-section opacity-0">
-              Ready to Make a <span className="yellow-highlight">Difference</span>?
+              Ready to Make a Difference?
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto mb-10 fade-in-section opacity-0" style={{ animationDelay: '0.2s' }}>
               Join our community of donors, volunteers, NGOs, and beneficiaries. 
               Together, we can create meaningful impact and transform lives.
             </p>
             <div className="flex flex-wrap justify-center gap-4 fade-in-section opacity-0" style={{ animationDelay: '0.4s' }}>
-              <Button variant="primary" size="lg">
+              <Button variant="default" size="lg">
                 Donate Now
               </Button>
               <Button size="lg" className="bg-white text-theuyir-pink hover:bg-white/90">

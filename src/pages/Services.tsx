@@ -1,7 +1,13 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
-import { ArrowRight } from 'lucide-react';
+import { 
+  ArrowRight, Calendar, MapPin, 
+  Heart, BookOpen, User, Home, 
+  GraduationCap, LifeBuoy, Utensils, 
+  Stethoscope 
+} from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 
 const ServiceCard = ({ icon, title, description, color }: { icon: React.ReactNode, title: string, description: string, color: string }) => {
